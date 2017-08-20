@@ -31,12 +31,15 @@ public class ReadFile {
 		        	
 		        	//lines.add(line); // add the line to list
 		        	//System.out.println(line);
-		        	String startingFloor = line.substring(0,line.indexOf(":")); // original elevator position
+		        	String startingFloor = line.substring(0,line.indexOf(":")); // elevator start position
 		    		String floorList = line.substring(line.indexOf(":")+1); // Requested floor list
-		    		System.out.println(startingFloor);
-		    		System.out.println(floorList);
+		    		//System.out.println(startingFloor);
+		    		//System.out.println(floorList);
 		    		
-		        	ele.modeA();
+		        	ele.modeA(startingFloor,floorList);
+		        	
+		        	
+		        	
 		        	line = in.readLine(); // try to read another line
 		        	
 		        }
