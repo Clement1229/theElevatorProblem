@@ -1,4 +1,5 @@
 package readerWriter;
+import elevator.Elevator;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,7 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ReadFile {
-
+	Elevator ele = new Elevator();
 	public ReadFile(){
 	}
 	
@@ -29,7 +30,13 @@ public class ReadFile {
 		        while(line != null){ //loop till no more lines
 		        	
 		        	//lines.add(line); // add the line to list
-		        	System.out.println(line);
+		        	//System.out.println(line);
+		        	String startingFloor = line.substring(0,line.indexOf(":")); // original elevator position
+		    		String floorList = line.substring(line.indexOf(":")+1); // Requested floor list
+		    		System.out.println(startingFloor);
+		    		System.out.println(floorList);
+		    		
+		        	ele.modeA();
 		        	line = in.readLine(); // try to read another line
 		        	
 		        }
