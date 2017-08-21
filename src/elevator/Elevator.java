@@ -24,9 +24,10 @@ public class Elevator {
 		}*/
 		
 		numbers[0] = Integer.parseInt(startingFloor);
+		ls.add(numbers[0]);
 		for(int i = 1; i < split.length+1 ; i++){
 		   numbers[i] = Integer.parseInt(split[i-1]);  // convert String[] to Integer[]
-		   
+		   ls.add(numbers[i]);
 		   
 		   if(i != 0){// calculate distance, start from index of 1
 			   if(numbers[i] - numbers[i-1] >= 0){
@@ -41,17 +42,6 @@ public class Elevator {
 		}
 		
 		System.out.println("distance:" + distance);
-	
-		
-		/*
-		System.out.println("Mode A");
-		for(int i = 0; i < split.length ; i++){
-	        	System.out.print(split[i]+" ");
-	    }
-		System.out.println();
-		*/
-	
-		
 		
 		
 	}
