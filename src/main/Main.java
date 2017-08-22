@@ -1,5 +1,6 @@
 package main;
 import readerWriter.ReadFile;
+import readerWriter.WriteFile;
 import elevator.Elevator;
 
 import java.io.FileNotFoundException;
@@ -12,9 +13,14 @@ public class Main {
 	public static void main(String [] args) throws FileNotFoundException{
 		Elevator e = new Elevator();
 		
-		ReadFile rd = new ReadFile(e);
-		rd.readInputFile();
-		PrintWriter out = new PrintWriter("output.txt");
+		ReadFile rf = new ReadFile(e);
+		rf.readInputFile();
+		System.out.println("distanceA: " + e.getDistanceAList());
+		System.out.println("distanceB: " + e.getDistanceBList());
+		//PrintWriter out = new PrintWriter("output.txt");
+		WriteFile wf = new WriteFile(e);
+		wf.writeOutputFile();
+		
 		
 		
 		System.out.println("final listA: " + e.getModeAList());

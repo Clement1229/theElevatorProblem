@@ -11,6 +11,8 @@ public class Elevator {
 	private ArrayList<ArrayList<Integer>> modeAList= new ArrayList<ArrayList<Integer>>();
 	// store all the expected output of modeB
 	private ArrayList<ArrayList<Integer>> modeBList= new ArrayList<ArrayList<Integer>>();
+	private ArrayList<Integer> distanceAList = new ArrayList<Integer>();
+	private ArrayList<Integer> distanceBList = new ArrayList<Integer>();
 	
 	boolean up; // default: if requested floor - initial floor > 0
 	
@@ -19,6 +21,7 @@ public class Elevator {
 		
 		int distance = 0; // elevator total travel distance
 		ArrayList<Integer> ls = new ArrayList<Integer>();  // store the output
+		//ArrayList<Integer> ls_distance  = new ArrayList<Integer>();  // store distance
 		String[] split = line.split("-|,|:"); // 1-5,1-6 => 1 5 1 6
 		int[] numbers = new int[split.length];
 		
@@ -44,7 +47,8 @@ public class Elevator {
 //		System.out.print(ls);
 //		System.out.println(" distance:" + distance);
 		
-		ls.add(0,distance); // add distance at the index0
+		//ls.add(0,distance); // add distance at the index0
+		distanceAList.add(distance);
 		modeAList.add(ls);
 		//System.out.println("list of list :" + modeAList);
 	
@@ -135,7 +139,8 @@ public class Elevator {
 				distance += (ns.get(i) - ns.get(i-1));
 		}
 		System.out.println("distance: " + distance);
-		ns.add(0,distance);
+		//ns.add(0,distance);
+		distanceBList.add(distance);
 		modeBList.add(ns);
 			
 			
@@ -180,5 +185,11 @@ public class Elevator {
 	}
 	public ArrayList<ArrayList<Integer>> getModeBList(){
 		return modeBList;
+	}
+	public ArrayList<Integer> getDistanceAList(){
+		return distanceAList;
+	}
+	public ArrayList<Integer> getDistanceBList(){
+		return distanceBList;
 	}
 }
