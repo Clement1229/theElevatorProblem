@@ -3,6 +3,8 @@ package elevator;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.TreeSet;
+import elevator.TreeSetComparator;
 
 public class Elevator {
 	// store all the expected output of modeA 
@@ -60,6 +62,8 @@ public class Elevator {
 		int[] numbers = new int[split.length];
 		//System.out.println(startPos);
 		HashSet<Integer> hs = new HashSet<Integer>();
+		TreeSet<Integer> ats = new TreeSet<Integer>(hs); //Ascending Order
+		TreeSet<Integer> dts = new TreeSet<Integer>(new TreeSetComparator(hs)); //Descending Order
 		
 		
 		
@@ -68,21 +72,59 @@ public class Elevator {
 			numbers[i] = Integer.valueOf(split[i]);
 			System.out.print(numbers[i]+ " ");
 		}
+		System.out.println();
 		
 		
 		//boolean up; // default: if requested floor - initial floor > 0
 		setInitialDirection(numbers);
 		//System.out.println("Elevator inital direction: " + up);
 		
-		int i = 1;
 		
-		// 11 6 10 5 6 8 7 4 12 7 8 9
-		do{
-			hs.add(numbers[i-1]);
-			hs.add(numbers[i]);
-		}while(true);
-		
-	}
+		/* ** sorting elements based on same direction  ** */ 
+		for ( int i = 1; i < numbers.length; i+=2){
+			//System.out.println("im here");
+			System.out.println("current direction: " + checkDirection(numbers[i-1],numbers[i])+ " || up: " + up);
+			if(checkDirection(numbers[i-1],numbers[i]) == up){
+				if(up == true){  // if up
+					ats.add(numbers[i-1]);
+					ats.add(numbers[i]);
+					System.out.println("ats: " + ats);
+				}else{ // if down
+					dts.add(numbers[i-1]);
+					dts.add(numbers[i]);
+					System.out.println("dts: " + dts);
+				}
+				
+			}else{ // if the direction is opposite
+				if(up == true){ // if the previous direction was up
+					
+					
+					ls.addAll(ats);				
+					System.out.println("ls: " + ls);
+					up = false;
+					ats.clear();
+					dts.add(numbers[i-1]);
+					dts.add(numbers[i]);
+				}else{
+					ls.addAll(dts);
+					System.out.println("ls: " + ats);
+					up = true;
+					dts.clear();
+					ats.add(numbers[i-1]);
+					ats.add(numbers[i]);
+				}
+				
+				//up = checkDirection(numbers[i-1],numbers[i]);
+			}
+		}
+		if(ats.isEmpty()!= true){
+			ls.addAll(ats);
+		}else{
+			ls.addAll(dts);
+		}
+		ls.add(0,Integer.valueOf(startPos)); // add startPos to index of 1
+		System.out.println("========ArrayList: " +ls + "==========");
+	}// modeB() end
 	
 	public void setInitialDirection(int[] numbers){
 		if(numbers[1] - numbers[0] > 0){  
