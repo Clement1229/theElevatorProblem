@@ -124,6 +124,7 @@ public class Elevator {
 		}
 		ls.add(0,Integer.valueOf(startPos)); // add startPos to index of 1
 		System.out.println("========ArrayList: " +ls + "==========");
+		System.out.println(removeConsecutiveDups(ls));
 	}// modeB() end
 	
 	public void setInitialDirection(int[] numbers){
@@ -140,6 +141,25 @@ public class Elevator {
 		else
 			return false; // going down
 	}
+	
+	// remove consecutive duplicates in ArrayList => elevator won't hit the same floor continuously
+	public static ArrayList<Integer> removeConsecutiveDups(ArrayList<Integer> input) {
+
+		  ArrayList<Integer> newList = new ArrayList<Integer>();
+
+		  // Always add first value
+		  newList.add(input.get(0));
+
+		  // Iterate the remaining values
+		  for(int i = 1; i < input.size(); i++) {
+		    // Compare current value to previous
+		    if(input.get(i-1) != input.get(i)) {
+		       newList.add(input.get(i));
+		    }
+		  }
+
+		  return newList;
+		}
 	
 	public ArrayList<ArrayList<Integer>> getModeAList(){
 		return modeAList;
