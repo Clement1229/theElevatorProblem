@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Elevator {
-	  
-	    
+	// store all the expected output of modeA 
+	private ArrayList<ArrayList<Integer>> modeAList= new ArrayList<ArrayList<Integer>>();
+	// store all the expected output of modeB
+	private ArrayList<ArrayList<Integer>> modeBList= new ArrayList<ArrayList<Integer>>();
+	
+	 
 	public void modeA(String line){ 
 		
 		int distance = 0; // elevator total travel distance
-		List<Integer> ls = new ArrayList<Integer>();  // store the output
+		ArrayList<Integer> ls = new ArrayList<Integer>();  // store the output
 		String[] split = line.split("-|,|:"); // 1-5,1-6 => 1 5 1 6
 		int[] numbers = new int[split.length];
 		int mod; // modifier = -1: when nextFloor - currentFloor < 0 
@@ -33,7 +37,10 @@ public class Elevator {
 		}
 		System.out.print(ls);
 		System.out.println(" distance:" + distance);
-		
+		ls.add(0,distance); // add distance at the index0
+		System.out.println(ls);
+		modeAList.add(ls);
+		//System.out.println("list of list :" + modeAList);
 	
 		
 		
@@ -41,5 +48,12 @@ public class Elevator {
 	
 	public void modeB(String line){
 		
+	}
+	
+	public ArrayList<ArrayList<Integer>> getModeAList(){
+		return modeAList;
+	}
+	public ArrayList<ArrayList<Integer>> getModeBList(){
+		return modeBList;
 	}
 }
