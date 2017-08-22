@@ -43,8 +43,8 @@ public class Elevator {
 		}
 //		System.out.print(ls);
 //		System.out.println(" distance:" + distance);
+		
 		ls.add(0,distance); // add distance at the index0
-//		System.out.println(ls);
 		modeAList.add(ls);
 		//System.out.println("list of list :" + modeAList);
 	
@@ -56,7 +56,8 @@ public class Elevator {
 		
 		int distance = 0; // elevator total travel distance
 		ArrayList<Integer> ls = new ArrayList<Integer>();  // store the output
-		String startPos = line.substring(0,line.indexOf(":")); // 7, separate startPos with the rest
+		ArrayList<Integer> ns = new ArrayList<Integer>();  // new list => list without consecutive duplicates
+ 		String startPos = line.substring(0,line.indexOf(":")); // 7, separate startPos with the rest
 		String floorRequest = line.substring(line.indexOf(":")+1); // the rest
 		String[] split = floorRequest.split("-|,|:"); // 11 6 10 5 6 8 7 4 12 7 8 9
 		int[] numbers = new int[split.length];
@@ -124,7 +125,20 @@ public class Elevator {
 		}
 		ls.add(0,Integer.valueOf(startPos)); // add startPos to index of 1
 		System.out.println("========ArrayList: " +ls + "==========");
-		System.out.println(removeConsecutiveDups(ls));
+		ns.addAll(removeConsecutiveDups(ls));
+		System.out.println(ns);
+		
+		for(int i =1 ; i < ns.size(); i++){
+			if(ns.get(i) - ns.get(i-1) < 0){
+				distance += -(ns.get(i) - ns.get(i-1));
+			}else
+				distance += (ns.get(i) - ns.get(i-1));
+		}
+		System.out.println("distance: " + distance);
+		ns.add(0,distance);
+		modeBList.add(ls);
+			
+			
 	}// modeB() end
 	
 	public void setInitialDirection(int[] numbers){
@@ -159,7 +173,7 @@ public class Elevator {
 		  }
 
 		  return newList;
-		}
+	}
 	
 	public ArrayList<ArrayList<Integer>> getModeAList(){
 		return modeAList;
