@@ -136,7 +136,7 @@ public class Elevator {
 		}
 		System.out.println("distance: " + distance);
 		ns.add(0,distance);
-		modeBList.add(ls);
+		modeBList.add(ns);
 			
 			
 	}// modeB() end

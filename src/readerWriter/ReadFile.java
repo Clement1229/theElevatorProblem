@@ -15,7 +15,8 @@ import readerWriter.WriteFile;
 public class ReadFile {
 	Elevator ele = new Elevator();
 	//WriteFile wf = new WriteFile(); 
-	public ReadFile(){
+	public ReadFile(Elevator e){
+		ele = e;
 	}
 	
 	public void readInputFile(){  // read input.txt
