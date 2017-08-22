@@ -21,6 +21,7 @@ public class Elevator {
 		
 		int distance = 0; // elevator total travel distance
 		ArrayList<Integer> ls = new ArrayList<Integer>();  // store the output
+		ArrayList<Integer> ns = new ArrayList<Integer>();  // new list => list without consecutive duplicates
 		//ArrayList<Integer> ls_distance  = new ArrayList<Integer>();  // store distance
 		String[] split = line.split("-|,|:"); // 1-5,1-6 => 1 5 1 6
 		int[] numbers = new int[split.length];
@@ -49,7 +50,8 @@ public class Elevator {
 		
 		//ls.add(0,distance); // add distance at the index0
 		distanceAList.add(distance);
-		modeAList.add(ls);
+		ns.addAll(removeConsecutiveDups(ls));
+		modeAList.add(ns);
 		//System.out.println("list of list :" + modeAList);
 	
 		
@@ -130,7 +132,7 @@ public class Elevator {
 		ls.add(0,Integer.valueOf(startPos)); // add startPos to index of 1
 		System.out.println("========ArrayList: " +ls + "==========");
 		ns.addAll(removeConsecutiveDups(ls));
-		System.out.println(ns);
+		System.out.println("removed dups:" + ns);
 		
 		for(int i =1 ; i < ns.size(); i++){
 			if(ns.get(i) - ns.get(i-1) < 0){
