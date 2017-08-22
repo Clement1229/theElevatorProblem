@@ -10,9 +10,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.LinkedList;
 import java.util.List;
+import readerWriter.WriteFile;
 
 public class ReadFile {
 	Elevator ele = new Elevator();
+	//WriteFile wf = new WriteFile(); 
 	public ReadFile(){
 	}
 	
@@ -37,7 +39,7 @@ public class ReadFile {
 		    		//System.out.println(floorList);
 		    		
 		        	ele.modeA(line);
-		        	
+		        	ele.modeB(line);
 		        	
 		        	
 		        	line = in.readLine(); // try to read another line

@@ -26,34 +26,20 @@ public class Elevator {
 				   else{
 					   mod = -1;
 				   }
+				
 				distance += (numbers[i] - numbers[i-1])*mod;
 			}
 			
 		}
-		System.out.println("distance:" + distance);
+		System.out.print(ls);
+		System.out.println(" distance:" + distance);
 		
-	/*	for(int i = 1; i < split.length+1 ; i++){
-		   numbers[i] = Integer.parseInt(split[i-1]);  // convert String[] to Integer[]
-		   ls.add(numbers[i]);
-		   
-		   if(i != 0){// calculate distance, start from index of 1
-			   if(numbers[i] - numbers[i-1] >= 0){
-				   mod = 1;
-			   }
-			   else{
-				   mod = -1;
-			   }
-			   distance += (numbers[i] - numbers[i-1])*mod;
-			  
-		   }
-		}*/
-		
-		//System.out.println("distance:" + distance);
+	
 		
 		
 	}
 	
-	public void modeB(){
+	public void modeB(String line){
 		
 	}
 }
