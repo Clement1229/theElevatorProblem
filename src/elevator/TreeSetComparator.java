@@ -3,6 +3,7 @@ package elevator;
 import java.util.Comparator;
 import java.util.HashSet;
 
+//customized sorting order by implements Comparator
 public class TreeSetComparator implements Comparator<Integer>{
 	
 	HashSet<Integer> hs = new HashSet<Integer>();

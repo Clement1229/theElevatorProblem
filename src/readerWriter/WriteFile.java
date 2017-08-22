@@ -3,6 +3,7 @@ import elevator.Elevator;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+
 public class WriteFile {
 	Elevator ele;
 	String a = "Mode A";
@@ -26,7 +27,7 @@ public class WriteFile {
 				out.printf("%1s ", ele.getModeAList().get(i).get(j)); // print floors
 				
 			}
-			int n = 0; // cheat!! => for slight adjustment (line6 % 7)
+			int n = 0; // for slight adjustment (line6 % 7)
 			if(i!=3 && i!=4) n=0;
 			if(i==3) n = 1;
 			if(i==4) n = 3;
