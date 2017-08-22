@@ -3,8 +3,6 @@ import elevator.Elevator;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-
 public class WriteFile {
 	Elevator ele;
 	String a = "Mode A";
