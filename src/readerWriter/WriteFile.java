@@ -36,7 +36,7 @@ public class WriteFile {
 				out.printf("%1s ",ele.getModeBList().get(i).get(j)); // print floors
 				
 			}
-			out.printf("%1s%s%s"  ,"(" ,ele.getDistanceAList().get(i),")" ); // print distanceB
+			out.printf("%1s%s%s"  ,"(" ,ele.getDistanceBList().get(i),")" ); // print distanceB
 			out.println();
 		}
 		
