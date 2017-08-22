@@ -66,7 +66,19 @@ public class Elevator {
 		}
 		
 		
-	
+		//boolean up; // default: if requested floor - initial floor > 0
+		setInitialDirection(numbers);
+		//System.out.println("Elevator inital direction: " + up);
+		for(int i = 1; i < numbers.length; i+=2){ // 11 6 10 5
+			
+		}
+		
+		int i = 1;
+		
+		// 11 6 10 5 6 8 7 4 12 7 8 9
+		do{
+			
+		}while(true);
 		
 	}
 	
